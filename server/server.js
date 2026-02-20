@@ -4,36 +4,11 @@
 //module
 // import express from "express";
 
-// const app = express();
-
-// app.get("/", (req, res) => {
-//   res.send([
-//     {
-//       name: "Sachin Kumar Kushwaha",
-//       age: 20,
-//     },
-//     {
-//       name: "Aryan kumar",
-//       age: 19,
-//     },
-//     {
-//       name: "Mohit",
-//       age: 12,
-//     },
-//   ]);
-// });
-
-// app.get("/about", (req, res) => {
-//   res.send("About Route");
-// });
-
-// app.listen(8000, () => {
-//   console.log("Server running on http://localhost:8000 🚀");
-// });
 
 import express from "express";
 
 const app = express();
+app.use(express.json());
 
 app.get("/", (req, res) => {
   res.send([
@@ -42,8 +17,8 @@ app.get("/", (req, res) => {
       age: 20,
     },
     {
-      name: "Mohan kumar ram",
-      age: 666,
+      name: "Mohan Kumar",
+      age: 78,
     },
   ]);
 
@@ -56,7 +31,13 @@ app.get("/", (req, res) => {
   });
 });
 
+app.post("/create-user", (req, res) => {
+  console.log(req.body);
+  res.send({
+    "message" : `Hey ${req.body.name}, Your data saved successfully.`
+  })
+});
 
-app.listen(8000 , () => {
-    console.log("Code is running on http://localhost:8000 🚀")
-})
+app.listen(8000, () => {
+  console.log("Code is running on http://localhost:8000 🚀");
+});
