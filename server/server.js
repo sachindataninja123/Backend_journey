@@ -17,7 +17,7 @@ app.get("/", (req, res) => {
       age: 20,
     },
     {
-      name: "Mohan Kumar",
+      name: "Mohan Kumar kushwaha",
       age: 78,
     },
   ]);
